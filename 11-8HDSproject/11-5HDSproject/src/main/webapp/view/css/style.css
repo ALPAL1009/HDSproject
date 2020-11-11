@@ -491,7 +491,37 @@
 
 /*--------------------------------------------------------------*/
 
+/*              FAQs Page                            */
+.questions {
+    background: url("../images/bg1.jpg");
+    background-size: cover;
+    height: 150vh;
+}
 
+.questions .nav .div {
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    font-family: 'Tangerine', serif;
+    margin-top: 1cm;
+    padding: 24px;
+    font-size: 50px;
+    /*  Header title color  */
+    color: #202923;
+}
+.questions-content {
+    margin-left: 275px;
+}
+.questions .questions-content h1 {
+    text-align: center;
+    color: midnightBlue;
+    font-style: italic;
+}
+
+.questions .questions-content p {
+    text-align: justify;
+    color: black;
+}
 
 
 
