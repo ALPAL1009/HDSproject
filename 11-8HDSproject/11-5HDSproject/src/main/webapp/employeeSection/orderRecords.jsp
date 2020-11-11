@@ -75,7 +75,7 @@
 
         <table id="recordTable">
             <tr>
-                <th>Oder ID</th>
+                <th>Order ID</th>
                 <th>Order Date</th>
                 <th>Ship Date</th>
                 <th>Customer ID</th>
