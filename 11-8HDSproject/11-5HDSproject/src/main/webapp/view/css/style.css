@@ -128,7 +128,6 @@
     height: 150vh;
 }
 
-
 .about .nav .div {
     display: inline-block;
     position: absolute;
@@ -140,11 +139,9 @@
     /*  Header title color  */
     color: #202923;
 }
-
 .about-content {
     margin-left: 275px;
 }
-
 .about .about-content h1 {
     text-align: center;
     color: midnightBlue;
@@ -493,6 +490,11 @@
 /*-----------------------------------------------------------*/
 
 /*--------------------------------------------------------------*/
+
+
+
+
+
 
 
 /*              Footer    */
