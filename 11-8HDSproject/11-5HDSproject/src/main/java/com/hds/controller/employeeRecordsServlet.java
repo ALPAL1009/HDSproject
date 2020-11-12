@@ -33,6 +33,13 @@ public class employeeRecordsServlet extends HttpServlet
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		if(request.getParameter("ADD") != null)
+		{
+				//get the Attributes and combine them and add new employee
+				//and return back to employee records with new employee added
+			RequestDispatcher rd = request.getRequestDispatcher("/employeeSection/employeeRecords.jsp");
+			rd.forward(request, response);
+		}
 
 	}
 }
