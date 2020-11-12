@@ -78,54 +78,57 @@
         <table id="recordTable">
             <tr>
                 <th>Employee ID</th>
-                <th>First Name</th>
                 <th>Last Name</th>
-                <th>Office Location</th>
+                <th>First Name</th>
                 <th>Position</th>
+                <th>Pay Rate</th>
+                <th>Office Location</th>
+                <th>Site User ID</th>
                 <th>Street Address</th>
                 <th>City</th>
                 <th>State</th>
                 <th>Zip Code</th>
-                <th>Date of Birth</th>
                 <th>Status</th>
                 <th> </th>
             </tr>
             <tr>
-                <td><label><input type="text" name="employeeID" value=""/></label></td>
-                <td><label><input type="text" name="emp.firstName" value=""/></label></td>
+                <td><label><input type="text" name="employeeId" value=""/></label></td>
                 <td><label><input type="text" name="emp.lastName" value=""/></label></td>
+                <td><label><input type="text" name="emp.firstName" value=""/></label></td>
+                <td><label><input type="text" name="emp.position" value=""/></label></td>
+                <td><label><input type="text" name="emp.payRate" value=""/></label></td>
                 <td>
                     <jsp:include page="/templates/selectLocation.html"></jsp:include>
                 </td>
-                <td><label><input type="text" name="emp.Position" value=""/></label></td>
+                <td><label><input type="text" name="emp.siteUserId" value=""/></label></td>
                 <td><label><input type="text" name="emp.address" value=""/></label></td>
                 <td><label><input type="text" name="emp.city" value=""/></label></td>
                 <td>
                     <jsp:include page="../templates/selectState.html"></jsp:include>
                 </td>
                 <td><label><input type="text" name="emp.zip" value=""/></label></td>
-                <td><label><input type="text" name="emp.dob" value=""/></label></td>
                 <td>
                     <jsp:include page="../templates/selectStatus.html"></jsp:include>
                 </td>
                 <td>
-                    <form action="../employeeRecordsServlet" method="POST">
+                    <form action="../employeeRecordsServlet" method="GET">
                         <input type="submit" name="ADD" value="Add New Employee">
                     </form>
                 </td>
             </tr>
             <c:forEach var="employeeList" items="${employeeList}">
                 <tr>
-                    <td>${employeeList.id}</td>
-                    <td>${employeeList.firstName}</td>
-                    <td>${employeeList.lastName}</td>
-                    <td>${employeeList.officeLocation}</td>
+                    <td>${employeeList.employeeId}</td>
+                    <td>${employeeList.employeeLastName}</td>
+                    <td>${employeeList.employeeFirstName}</td>
                     <td>${employeeList.position}</td>
+                    <td>${employeeList.payRate}</td>
+                    <td>${employeeList.officeLocation}</td>
+                    <td>${employeeList.siteUserId}</td>
                     <td>${employeeList.streetAddress}</td>
                     <td>${employeeList.city}</td>
                     <td>${employeeList.state}</td>
                     <td>${employeeList.zip}</td>
-                    <td>${employeeList.dob}</td>
                     <td>${employeeList.status}</td>
                     <td>
                         <a href="edit?id=<c:out value='${employeeList.id}' />">Edit</a>
@@ -136,16 +139,17 @@
             </c:forEach>
             <%--Sample layout--%>
             <tr>
-                <td>{employeeList.id}</td>
-                <td>{employeeList.firstName}</td>
-                <td>{employeeList.lastName}</td>
-                <td>{employeeList.officeLocation}</td>
+                <td>{employeeList.employeeId}</td>
+                <td>{employeeList.employeeFirstName}</td>
+                <td>{employeeList.employeeLastName}</td>
                 <td>{employeeList.position}</td>
+                <td>{employeeList.payRate}</td>
+                <td>{employeeList.officeLocation}</td>
+                <td>{employeeList.siteUserId}</td>
                 <td>{employeeList.streetAddress}</td>
                 <td>{employeeList.city}</td>
                 <td>{employeeList.state}</td>
                 <td>{employeeList.zip}</td>
-                <td>{employeeList.dob}</td>
                 <td>{employeeList.status}</td>
                 <td>
                     <a href="edit?id=<c:out value='${employeeList.id}' />">Edit</a>
