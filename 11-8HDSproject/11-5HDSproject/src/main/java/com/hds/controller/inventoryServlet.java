@@ -33,6 +33,13 @@ public class inventoryServlet extends HttpServlet
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		if(request.getParameter("Add New Product") != null)
+		{
+			//get the Attributes and combine them and add new product
+			//and return back to product records with new product added
+			RequestDispatcher rd = request.getRequestDispatcher("/employeeSection/inventory.jsp");
+			rd.forward(request, response);
+		}
 
 	}
 }

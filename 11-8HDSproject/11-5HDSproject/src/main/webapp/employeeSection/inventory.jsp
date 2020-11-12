@@ -101,8 +101,8 @@
                 <td><label><input type="text" name="product.inventoryCount" value=""/></label></td>
                 <td><label><input type="text" name="product.category" value=""/></label></td>
                 <td>
-                    <form action="../inventoryServlet" method="POST">
-                        <input type="submit" name="ADD" value="Add New Product">
+                    <form action="../inventoryServlet" method="GET">
+                        <input type="submit" name="Add New Product" value="Add New Product">
                     </form>
                 </td>
             </tr>
