@@ -32,6 +32,13 @@ public class jobsForBidServlet extends HttpServlet
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		if(request.getParameter("Add New Job Bid") != null)
+		{
+			//get the Attributes and combine them and add new bid
+			//and return back to bid records with new bid added
+			RequestDispatcher rd = request.getRequestDispatcher("/employeeSection/jobsForBid.jsp");
+			rd.forward(request, response);
+		}
 
 	}
 }

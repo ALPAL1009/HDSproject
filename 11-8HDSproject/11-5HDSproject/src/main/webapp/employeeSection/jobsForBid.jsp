@@ -91,8 +91,8 @@
                 <td><label><input type="text" name="bid.dateOpen" value=""/></label></td>
                 <td><label><input type="text" name="bid.dateClosed" value=""/></label></td>
                 <td>
-                    <form action="../jobsForBidServlet" method="POST">
-                        <input type="submit" name="ADD" value="Add New Job Bid">
+                    <form action="../jobsForBidServlet" method="GET">
+                        <input type="submit" name="Add New Job Bid" value="Add New Job Bid">
                     </form>
                 </td>
             </tr>
