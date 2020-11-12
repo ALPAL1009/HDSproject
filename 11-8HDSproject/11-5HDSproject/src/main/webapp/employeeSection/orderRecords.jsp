@@ -78,32 +78,48 @@
         <table id="recordTable">
             <tr>
                 <th>Order ID</th>
-                <th>Order Date</th>
-                <th>Ship Date</th>
                 <th>Customer ID</th>
-                <th>Employee ID</th>
+                <th>Street Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip Code</th>
+                <th>Shipping Cost</th>
+                <th>Total Cost</th>
+                <th>Date Ordered</th>
+                <th>Date Delivered</th>
                 <th></th>
             </tr>
             <tr>
                 <td><label><input type="text" name="orderId" value=""/></label></td>
-                <td><label><input type="text" name="order.orderDate" value=""/></label></td>
-                <td><label><input type="text" name="order.shipDate" value=""/></label></td>
                 <td><label><input type="text" name="order.customerId" value=""/></label></td>
-                <td><label><input type="text" name="order.employeeId" value=""/></label></td>
+                <td><label><input type="text" name="order.address" value=""/></label></td>
+                <td><label><input type="text" name="order.city" value=""/></label></td>
                 <td>
-                    <form action="../orderServlet" method="POST">
-                        <input type="submit" name="ADD" value="Add New Order">
+                    <jsp:include page="../templates/selectState.html"></jsp:include>
+                </td>
+                <td><label><input type="text" name="order.zip" value=""/></label></td>
+                <td><label><input type="text" name="order.shippingCost" value=""/></label></td>
+                <td><label><input type="text" name="order.totalCost" value=""/></label></td>
+                <td><input type="date" id="orderDate" name="orderDate" value="" min="2020-01-01" max="2021-12-31"></td>
+                <td><input type="date" id="deliveryDate" name="deliveryDate" value="" min="2020-01-01" max="2021-12-31"></td>
+                <td>
+                    <form action="../orderServlet" method="GET">
+                        <input type="submit" name="Add New Order" value="Add New Order">
                     </form>
                 </td>
             </tr>
             <c:forEach var="orderList" items="${orderList}">
                 <tr>
                     <td>${orderList.id}</td>
-                    <td>${orderList.orderDate}</td>
-                    <td>${orderList.shipDate}</td>
                     <td>${orderList.customerId}</td>
-                    <td>${orderList.employeeId}</td>
-
+                    <td>${orderList.address}</td>
+                    <td>${orderList.city}</td>
+                    <td>${orderList.state}</td>
+                    <td>${orderList.zip}</td>
+                    <td>${orderList.shippingCost}</td>
+                    <td>${orderList.totalCost}</td>
+                    <td>${orderList.orderDate}</td>
+                    <td>${orderList.deliveryDate}</td>
                     <td>
                         <a href="edit?id=<c:out value='${orderList.id}' />">Edit</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
@@ -115,11 +131,15 @@
             <%--Sample layout--%>
             <tr>
                 <td>{orderList.id}</td>
-                <td>{orderList.orderDate}</td>
-                <td>{orderList.shipDate}</td>
                 <td>{orderList.customerId}</td>
-                <td>{orderList.employeeId}</td>
-
+                <td>{orderList.address}</td>
+                <td>{orderList.city}</td>
+                <td>{orderList.state}</td>
+                <td>{orderList.zip}</td>
+                <td>{orderList.shippingCost}</td>
+                <td>{orderList.totalCost}</td>
+                <td>{orderList.orderDate}</td>
+                <td>{orderList.deliveryDate}</td>
                 <td>
                     <a href="edit?id=<c:out value='${orderList.id}' />">Edit</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;
