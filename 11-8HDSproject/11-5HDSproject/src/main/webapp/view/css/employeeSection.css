@@ -150,6 +150,7 @@ h1 {
 .saleReceipt{
     background: url("../images/bg1.jpg");
     background-size: cover;
+    height: 150vh;
 }
 
 .saleReceipt-container{
@@ -174,6 +175,28 @@ th {
     width: 40px;
 }
 
+/*-----Sale Summary-----*/
+.saleSummary{
+    background: url("../images/bg1.jpg");
+    background-size: cover;
+
+    /*    Added (11/9)    */
+    height: 150vh;
+}
+.saleSummary-content{
+    margin-left: 275px;
+}
+#saleSummaryTotal{
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+#saleSummaryTotal tr{
+
+}
+#saleSummaryTotal td{
+    width: 50%;
+    text-align: right;
+}
 
 /*----------------------Looping Table----------------------*/
 #recordTable {

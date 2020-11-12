@@ -1,19 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
 <head>
-    <!--    CSS   -->
+
+    <!--CSS-->
     <link rel="stylesheet" href="../view/css/style.css">
     <link rel="stylesheet" href="../view/css/employeeSection.css">
 
     <!--    External Font for Header    -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
 
-    <title>Employee Section</title>
+
+    <title>Sales Summary Page</title>
 </head>
 <body>
 
-<!--        Employee Section     -->
-<div class="employeeSection">
+
+<!--     Customer Records Page    -->
+<div class="saleSummary">
 
     <!--      Navbar    -->
     <div class="nav">
@@ -40,14 +44,16 @@
                     <li><a href="../html-appliances/cabinets.html">Cabinets</a></li>
                     <li><a href="../html-appliances/lighting.html">Lighting</a></li>
                     <li><a href="../html-appliances/plumbing.html">Plumbing</a></li>
-                    <li><a href="../html-appliances/ct_ft.html">Countertops & FloorTile</a></li>
+                    <li><a href="../html-appliances/ct_ft.html">Countertops &
+                        FloorTile</a></li>
                 </ul>
             </li>
 
             <li><a href="#">Locations</a>
                 <ul>
                     <li><a href="../html-locations/phoenix.html">Phoenix, AZ</a></li>
-                    <li><a href="../html-locations/scottsdale.html">Scottsdale, AZ</a></li>
+                    <li><a href="../html-locations/scottsdale.html">Scottsdale, AZ</a>
+                    </li>
                     <li><a href="../html-locations/tucson.html">Tucson, AZ</a></li>
                     <li><a href="../html-locations/lv.html">Las Vegas, NV</a></li>
                     <li><a href="../html-locations/al.html">Albuquerque, NM</a></li>
@@ -64,52 +70,56 @@
         </ul>
     </div>
 
-    <div class="employeeSection-content">
+    <div class="saleSummary-content">
 
-        <h1>Employee Section<br><br></h1>
+        <h1>Sale Summary<br><br></h1>
 
-        <div class="servletList">
-            <ul>
-                <li>
-                    <form action="/customerServlet" method="POST">
-                        <input type="submit" Name="Customer Records" value="Customer Records">
-                    </form>
-                </li>
-                <li>
-                    <form action="/employeeRecordsServlet" method="POST">
-                        <input type="submit" Name="Employee Records" value="Employee Records">
-                    </form>
-                </li>
-                <li>
-                    <form action="/inventoryServlet" method="POST">
-                        <input type="submit" Name="Inventory" value="Inventory">
-                    </form>
-                </li>
-                <li>
-                    <form action="/orderServlet" method="POST">
-                        <input type="submit" Name="Order Records" value="Order Records">
-                    </form>
-                </li>
-                <li>
-                    <form action="/jobsForBidServlet" method="POST">
-                        <input type="submit" Name="Jobs for Bid" value="Jobs for Bid">
-                    </form>
-                </li>
-                <li>
-                    <a href="../employeeSection/monthlyStatement.jsp">Monthly Statements</a>
-                </li>
-                <li>
-                    <a href="../employeeSection/salesReceipt.jsp">Sales Receipt</a>
-                </li>
-                <li>
-                    <a href="../employeeSection/saleSummary.jsp">Sales Summary</a>
-                </li>
-
-            </ul>
+        <div id="dateRange">
+            Starting Date:<label><input type="date" id="startDate" name="startDate"
+                                        value=""
+                                        min="2020-01-01" max="2021-12-31"></label>
+            Ending Date:<label><input type="date" id="endDate" name="endDate" value=""
+                                      min="2020-01-01" max="2021-12-31"></label>
+            <br>
+            <br>
+            <form action="../orderServlet" method="GET">
+                <input type="submit" name="Get Orders" value="Get Orders">
+            </form>
+            <br>
+            <br>
         </div>
-    </div>
 
+        <table id="recordTable">
+            <tr>
+                <th>Order ID</th>
+                <th>Total Cost</th>
+            </tr>
+
+            <c:forEach var="saleSummaryList" items="${saleSummaryList}">
+                <tr>
+                    <td>${saleSummaryList.OrderId}</td>
+                    <td>${saleSummaryList.totalCost}</td>
+                </tr>
+            </c:forEach>
+
+            <%--Sample layout--%>
+            <tr>
+                <td>{saleSummaryList.OrderId}</td>
+                <td>{saleSummaryList.totalCost}</td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <table id="saleSummaryTotal">
+            <tr>
+                <th> Total:</th>
+                <td>{JS code to sum(totalCost)}</td>
+            </tr>
+        </table>
+
+    </div>
 </div>
+
 
 <footer>
     <p><br><br><br></p>
@@ -123,5 +133,9 @@
     </p>
 </footer>
 
+
 </body>
 </html>
+
+
+

@@ -41,5 +41,13 @@ public class orderServlet extends HttpServlet
 			rd.forward(request, response);
 		}
 
+		if(request.getParameter("Get Orders") != null)
+		{
+			//get the Date Attributes
+			//and return back to saleSummary page with  Orders between the dates
+			RequestDispatcher rd = request.getRequestDispatcher("/employeeSection/saleSummary.jsp");
+			rd.forward(request, response);
+		}
+
 	}
 }

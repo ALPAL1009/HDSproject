@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
 
 
-    <title>Customer Records Page</title>
+    <title>Order Records Page</title>
 </head>
 <body>
 
