@@ -104,7 +104,7 @@
                 <td><label><input type="email" name="cus.email" value=""/></label></td>
                 <td>
                     <form action="../customerServlet" method="POST">
-                        <input type="submit" name="ADD" value="Add New Customer">
+                        <input type="submit" name="Add New Customer" value="Add New Customer">
                     </form>
                 </td>
             </tr>

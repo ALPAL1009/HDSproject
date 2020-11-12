@@ -48,5 +48,13 @@ public class customerServlet extends HttpServlet
 			rd.forward(request, response);
 		}
 
+		if(request.getParameter("Add New Customer") != null)
+		{
+			//get the Attributes and combine them and add new customer
+			//and return back to customer records with new customer added
+			RequestDispatcher rd = request.getRequestDispatcher("/employeeSection/customerRecords.jsp");
+			rd.forward(request, response);
+		}
+
 	}
 }

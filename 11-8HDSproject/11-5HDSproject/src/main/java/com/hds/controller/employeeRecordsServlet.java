@@ -33,7 +33,7 @@ public class employeeRecordsServlet extends HttpServlet
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		if(request.getParameter("ADD") != null)
+		if(request.getParameter("Add New Employee") != null)
 		{
 				//get the Attributes and combine them and add new employee
 				//and return back to employee records with new employee added

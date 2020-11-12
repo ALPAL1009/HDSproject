@@ -112,7 +112,7 @@
                 </td>
                 <td>
                     <form action="../employeeRecordsServlet" method="GET">
-                        <input type="submit" name="ADD" value="Add New Employee">
+                        <input type="submit" name="Add New Employee" value="Add New Employee">
                     </form>
                 </td>
             </tr>
