@@ -78,19 +78,27 @@
         <table id="inventoryTable">
             <tr>
                 <th>Product ID</th>
-                <th>Product Name</th>
-                <th>Product Description</th>
-                <th>Product Retail Price</th>
-                <th>Quantity on Hand</th>
+                <th>Name</th>
+                <th>Model Number</th>
+                <th>Serial Number</th>
+                <th>Description</th>
+                <th>Retail Price</th>
+                <th>Listed Price</th>
+                <th>Delivery Cost</th>
+                <th>Inventory Count</th>
                 <th>Category</th>
                 <th> </th>
             </tr>
             <tr>
                 <td><label><input type="text" name="productId" value=""/></label></td>
                 <td><label><input type="text" name="product.name" value=""/></label></td>
+                <td><label><input type="text" name="product.modelNumber" value=""/></label></td>
+                <td><label><input type="text" name="product.serialNumber" value=""/></label></td>
                 <td><label><input type="text" name="product.description" value=""/></label></td>
                 <td><label><input type="text" name="product.retailPrice" value=""/></label></td>
-                <td><label><input type="text" name="product.quantityOnHand" value=""/></label></td>
+                <td><label><input type="text" name="product.listedPrice" value=""/></label></td>
+                <td><label><input type="text" name="product.deliveryCost" value=""/></label></td>
+                <td><label><input type="text" name="product.inventoryCount" value=""/></label></td>
                 <td><label><input type="text" name="product.category" value=""/></label></td>
                 <td>
                     <form action="../inventoryServlet" method="POST">
@@ -102,9 +110,13 @@
                 <tr>
                     <td>${productList.id}</td>
                     <td>${productList.name}</td>
+                    <td>${productList.modelNumber}</td>
+                    <td>${productList.serialNumber}</td>
                     <td>${productList.description}</td>
                     <td>${productList.retailPrice}</td>
-                    <td>${productList.quantityOnHand}</td>
+                    <td>${productList.listedPrice}</td>
+                    <td>${productList.deliveryCost}</td>
+                    <td>${productList.inventoryCount}</td>
                     <td>${productList.category}</td>
                     <td>
                         <a href="edit?id=<c:out value='${productList.id}' />">Edit</a>
@@ -117,9 +129,13 @@
             <tr>
                 <td>{productList.id}</td>
                 <td>{productList.name}</td>
+                <td>{productList.modelNumber}</td>
+                <td>{productList.serialNumber}</td>
                 <td>{productList.description}</td>
                 <td>{productList.retailPrice}</td>
-                <td>{productList.quantityOnHand}</td>
+                <td>{productList.listedPrice}</td>
+                <td>{productList.deliveryCost}</td>
+                <td>{productList.inventoryCount}</td>
                 <td>{productList.category}</td>
                 <td>
                     <a href="edit?id=<c:out value='${productList.id}' />">Edit</a>
