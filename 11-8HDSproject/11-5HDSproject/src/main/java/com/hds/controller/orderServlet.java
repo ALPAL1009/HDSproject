@@ -33,6 +33,13 @@ public class orderServlet extends HttpServlet
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		if(request.getParameter("Add New Order") != null)
+		{
+			//get the Attributes and combine them and add new Order
+			//and return back to Order records with new Order added
+			RequestDispatcher rd = request.getRequestDispatcher("/employeeSection/orderRecords.jsp");
+			rd.forward(request, response);
+		}
 
 	}
 }
