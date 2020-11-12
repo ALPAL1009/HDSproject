@@ -88,6 +88,12 @@
                     Zip:${cus.zip}(cus.zip)
                 </form>
                 <br>
+                <label for="saleDate">Date:</label>
+
+                <input type="date" id="saleDate" name="saleDate"
+                       value=""
+                       min="2020-01-01" max="2021-12-31">
+                <br><br>
             </div>
             <div>
                 <table id="topTable">
@@ -180,14 +186,14 @@
     }
 
     function myCreateFunction() {
-        var table = document.getElementById("topTable");
-        var row = table.insertRow(2);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        var cell4 = row.insertCell(3);
-        var cell5 = row.insertCell(4);
-        var cell5 = row.insertCell(5);
+        const table = document.getElementById("topTable");
+        const row = table.insertRow(2);
+        const cell1 = row.insertCell(0);
+        const cell2 = row.insertCell(1);
+        const cell3 = row.insertCell(2);
+        const cell4 = row.insertCell(3);
+        const cell5 = row.insertCell(4);
+        const cell6 = row.insertCell(5);
         cell1.innerHTML = "product.id";
         cell2.innerHTML = "product.description";
         cell3.innerHTML = "";
