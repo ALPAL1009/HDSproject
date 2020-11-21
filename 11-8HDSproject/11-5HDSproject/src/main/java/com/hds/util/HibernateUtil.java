@@ -24,9 +24,16 @@ public class HibernateUtil {
 
                 Properties settings = new Properties();
                 settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
-                settings.put(Environment.URL, "jdbc:mysql://localhost:3306/mod_assign_7");
-                settings.put(Environment.USER, "root");
-                settings.put(Environment.PASS, "databases!kitties!coffee!");
+
+                // README - update password before running to match user's authentication
+                // Add database
+                settings.put(Environment.URL, "jdbc:mysql://localhost:3306/");
+
+                // add user
+                settings.put(Environment.USER, "");
+                // add password
+                settings.put(Environment.PASS, "");
+
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
 
                 settings.put(Environment.SHOW_SQL, "true");
