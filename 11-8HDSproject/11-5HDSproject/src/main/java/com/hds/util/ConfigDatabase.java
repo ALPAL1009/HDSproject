@@ -92,6 +92,7 @@ public class ConfigDatabase
 //			Query query = session.createQuery("FROM CustomerPojo");
 			Query query = session.createQuery("FROM Customer c inner join c.address");
 
+
 			customerList = query.getResultList();
 
 			//			for(TodolistEntity list : toDoLists)

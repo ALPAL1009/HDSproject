@@ -2,8 +2,9 @@ package com.hds.model;
 
 import javax.persistence.*;
 
-@Entity(name = "Address")
-//@Table(name = "Address")
+@Entity
+//@Entity(name = "Address")
+@Table(name = "Address")
 public class Address
 {
 
@@ -26,10 +27,10 @@ public class Address
 
 	public Address(String street, String city, String state, String zip)
 	{
-        this.street = street;
-        this.city = city;
-        this.state = state;
-        this.zip = zip;
+		this.street = street;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
 	}
 
 	public Address()

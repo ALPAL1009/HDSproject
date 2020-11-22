@@ -1,44 +1,47 @@
 package com.hds.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity(name = "Customer")
-//@Table(name = "Customer")
+@Entity
+//@Entity(name = "Customer")
+@Table(name = "Customer")
 public class Customer
 {
-
-
 
 	@Id
 	@Column(name = "CustomerID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int customer_id;
-// **this is the original
-//	    @Column(name = "AddressID")
-//	    private String customer_address_id;
-//
-//	    public String getCustomer_address_id()
-//	    {
-//	        return customer_address_id;
-//	    }
-//
-//	    public void setCustomer_address_id(String customer_address_id)
-//	    {
-//	        this.customer_address_id = customer_address_id;
-//	    }
-	@ManyToOne(targetEntity = Address.class)
-	@JoinColumn(name = "ADDRESS_ID")
-	private Address address;
 
-	public Address getAddress()
-	{
-		return address;
-	}
+	// **this is the original
+	//	    @Column(name = "AddressID")
+	//	    private String customer_address_id;
+	//
+	//	    public String getCustomer_address_id()
+	//	    {
+	//	        return customer_address_id;
+	//	    }
+	//
+	//	    public void setCustomer_address_id(String customer_address_id)
+	//	    {
+	//	        this.customer_address_id = customer_address_id;
+	//	    }
+		@ManyToOne(targetEntity = Address.class)
+		@JoinColumn(name = "ADDRESS_ID")
+		private Address address;
 
-	public void setAddress(Address address)
-	{
-		this.address = address;
-	}
+		public Address getAddress()
+		{
+			return address;
+		}
+
+		public void setAddress(Address address)
+		{
+			this.address = address;
+		}
+
 
 	@Column(name = "LastName")
 	private String customer_last_name;
