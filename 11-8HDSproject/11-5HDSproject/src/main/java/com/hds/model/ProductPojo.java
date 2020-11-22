@@ -21,7 +21,7 @@ public class ProductPojo {
     private int inventory_count;
 
     @Column(name = "ModelNum")
-    private int model_num;
+    private String model_num;
 
     @Column(name = "SerialNum")
     private int serial_num;
@@ -74,11 +74,11 @@ public class ProductPojo {
         this.inventory_count = inventory_count;
     }
 
-    public int getModel_num() {
+    public String getModel_num() {
         return model_num;
     }
 
-    public void setModel_num(int model_num) {
+    public void setModel_num(String model_num) {
         this.model_num = model_num;
     }
 
