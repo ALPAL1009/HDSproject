@@ -13,7 +13,7 @@ public class JobPositionPojo {
     private int job_position_id;
 
     @Column(name = "JobTitle")
-    private int job_title;
+    private String job_title;
 
     @Column(name = "JobDescription")
     private String job_description;
@@ -30,11 +30,11 @@ public class JobPositionPojo {
         this.job_position_id = job_position_id;
     }
 
-    public int getJob_title() {
+    public String getJob_title() {
         return job_title;
     }
 
-    public void setJob_title(int job_title) {
+    public void setJob_title(String job_title) {
         this.job_title = job_title;
     }
 
