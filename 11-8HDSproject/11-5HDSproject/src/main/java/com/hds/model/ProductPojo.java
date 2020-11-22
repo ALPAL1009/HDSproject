@@ -23,6 +23,7 @@ public class ProductPojo {
     @Column(name = "ModelNum")
     private String model_num;
 
+
     @Column(name = "SerialNum")
     private int serial_num;
 
