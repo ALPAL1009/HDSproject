@@ -112,29 +112,29 @@
             </tr>
             <c:forEach var="customerList" items="${customerList}">
                 <tr>
-                    <td>${customerList.id}</td>
-                    <td>${customerList.lastName}</td>
-                    <td>${customerList.firstName}</td>
-                    <td>${customerList.middleInitial}</td>
-                    <td>${customerList.streetAddress}</td>
+                    <td>${customerList.customer_id}</td>
+                    <td>${customerList.customer_last_name}</td>
+                    <td>${customerList.customer_first_name}</td>
+                    <td>${customerList.customer_mi}</td>
+                    <td>${customerList.street}</td>
                     <td>${customerList.city}</td>
                     <td>${customerList.state}</td>
                     <td>${customerList.zip}</td>
-                    <td>${customerList.phNumber}</td>
-                    <td>${customerList.email}</td>
+                    <td>${customerList.customer_phone_num}</td>
+                    <td>${customerList.customer_email}</td>
                     <td>
-                        <a href="edit?id=<c:out value='${customerList.id}' />">Edit</a>
+<%--                        <a href="edit?id=<c:out value='${customerList.id}' />">Edit</a>--%>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="delete?id=<c:out value='${customerList.id}' />">Delete</a>
+<%--                        <a href="delete?id=<c:out value='${customerList.id}' />">Delete</a>--%>
                     </td>
                 </tr>
             </c:forEach>
             <%--Sample layout--%>
             <tr>
-                <td>{customerList.id}</td>
-                <td>{customerList.lastName}</td>
-                <td>{customerList.firstName}</td>
-                <td>{customerList.middleInitial}</td>
+                <td>{customerList.customer_id}</td>
+                <td>{customerList.customer_last_name}</td>
+                <td>{customerList.customer_first_name}</td>
+                <td>{customerList.customer_mi}</td>
                 <td>{customerList.streetAddress}</td>
                 <td>{customerList.city}</td>
                 <td>{customerList.state}</td>
