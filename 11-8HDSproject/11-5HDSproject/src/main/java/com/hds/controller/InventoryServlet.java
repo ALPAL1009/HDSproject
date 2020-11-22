@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "inventoryServlet", urlPatterns = "/inventoryServlet")
-public class inventoryServlet extends HttpServlet
+public class InventoryServlet extends HttpServlet
 {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
