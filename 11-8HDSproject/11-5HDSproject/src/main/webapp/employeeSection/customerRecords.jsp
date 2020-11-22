@@ -78,8 +78,9 @@
         <table id="recordTable">
             <tr>
                 <th>Customer ID</th>
-                <th>First Name</th>
                 <th>Last Name</th>
+                <th>First Name</th>
+                <th>Middle Initial</th>
                 <th>Street Address</th>
                 <th>City</th>
                 <th>State</th>
@@ -91,8 +92,9 @@
             <tr>
                 <%--Add new Customer--%>
                 <td><label><input type="text" name="customerID" value=""/></label></td>
+                    <td><label><input type="text" name="cus.lastName" value=""/></label></td>
                 <td><label><input type="text" name="cus.firstName" value=""/></label></td>
-                <td><label><input type="text" name="cus.lastName" value=""/></label></td>
+                <td><label><input type="text" name="cus.middleInitial" value=""/></label></td>
                 <td><label><input type="text" name="cus.streetAddress" value=""/></label>
                 </td>
                 <td><label><input type="text" name="cus.city" value=""/></label></td>
@@ -111,8 +113,9 @@
             <c:forEach var="customerList" items="${customerList}">
                 <tr>
                     <td>${customerList.id}</td>
-                    <td>${customerList.firstName}</td>
                     <td>${customerList.lastName}</td>
+                    <td>${customerList.firstName}</td>
+                    <td>${customerList.middleInitial}</td>
                     <td>${customerList.streetAddress}</td>
                     <td>${customerList.city}</td>
                     <td>${customerList.state}</td>
@@ -129,8 +132,9 @@
             <%--Sample layout--%>
             <tr>
                 <td>{customerList.id}</td>
-                <td>{customerList.firstName}</td>
                 <td>{customerList.lastName}</td>
+                <td>{customerList.firstName}</td>
+                <td>{customerList.middleInitial}</td>
                 <td>{customerList.streetAddress}</td>
                 <td>{customerList.city}</td>
                 <td>{customerList.state}</td>
