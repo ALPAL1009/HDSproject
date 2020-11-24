@@ -78,28 +78,37 @@
         <table id="inventoryTable">
             <tr>
                 <th>Product ID</th>
-                <th>Name</th>
+                <th>Brand</th>
+                <th>Category</th>
+                <th>Inventory Count</th>
                 <th>Model Number</th>
                 <th>Serial Number</th>
                 <th>Description</th>
-                <th>Retail Price</th>
+                <th>Cost</th>
                 <th>Listed Price</th>
                 <th>Delivery Cost</th>
-                <th>Inventory Count</th>
-                <th>Category</th>
+                <th>Is Active</th>
+
+
                 <th> </th>
             </tr>
             <tr>
-                <td><label><input type="text" name="productId" value=""/></label></td>
-                <td><label><input type="text" name="product.name" value=""/></label></td>
-                <td><label><input type="text" name="product.modelNumber" value=""/></label></td>
-                <td><label><input type="text" name="product.serialNumber" value=""/></label></td>
+                <td><label><input type="text" name="product.product_id" value=""/></label></td>
+                <td><label><input type="text" name="product.product_name" value=""/></label></td>
+                <td><label><input type="text" name="product.category_name" value=""/></label></td>
+                <td><label><input type="text" name="product.inventory_count" value=""/></label></td>
+                <td><label><input type="text" name="product.model_num" value=""/></label></td>
+                <td><label><input type="text" name="product.serial_num" value=""/></label></td>
                 <td><label><input type="text" name="product.description" value=""/></label></td>
-                <td><label><input type="text" name="product.retailPrice" value=""/></label></td>
-                <td><label><input type="text" name="product.listedPrice" value=""/></label></td>
+                <td><label><input type="text" name="product.cost" value=""/></label></td>
+                <td><label><input type="text" name="product.list_price" value=""/></label></td>
                 <td><label><input type="text" name="product.deliveryCost" value=""/></label></td>
-                <td><label><input type="text" name="product.inventoryCount" value=""/></label></td>
-                <td><label><input type="text" name="product.category" value=""/></label></td>
+                <td><label><input type="text" name="product.is_active" value=""/></label></td>
+                <td>
+                    <jsp:include page="../templates/selectState.html"></jsp:include>
+                </td>
+
+
                 <td>
                     <form action="../inventoryServlet" method="GET">
                         <input type="submit" name="Add New Product" value="Add New Product">
