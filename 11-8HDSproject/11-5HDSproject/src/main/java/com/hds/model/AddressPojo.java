@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 //@Entity(name = "Address")
 @Table(name = "Address")
-public class Address
+public class AddressPojo
 {
 
 	@Id
@@ -25,7 +25,7 @@ public class Address
 	@Column(name = "Zip")
 	private String zip;
 
-	public Address(String street, String city, String state, String zip)
+	public AddressPojo(String street, String city, String state, String zip)
 	{
 		this.street = street;
 		this.city = city;
@@ -33,7 +33,7 @@ public class Address
 		this.zip = zip;
 	}
 
-	public Address()
+	public AddressPojo()
 	{
 
 	}

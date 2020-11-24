@@ -1,6 +1,6 @@
 package com.hds.controller;
 
-import com.hds.model.Customer;
+import com.hds.model.CustomerPojo;
 import com.hds.util.ConfigDatabase;
 
 import javax.servlet.RequestDispatcher;
@@ -29,7 +29,7 @@ public class CustomerServlet extends HttpServlet
 		{
 			System.out.println("Populate customer list ");
 
-			List<Customer> customerList;
+			List<CustomerPojo> customerList;
 			customerList = configDatabase.viewDB();
 
 			request.setAttribute("customerList", customerList);

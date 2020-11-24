@@ -74,7 +74,6 @@
 
         <h1>Inventory<br><br></h1>
 
-
         <table id="inventoryTable">
             <tr>
                 <th>Product ID</th>
@@ -88,8 +87,6 @@
                 <th>Listed Price</th>
                 <th>Delivery Cost</th>
                 <th>Is Active</th>
-
-
                 <th> </th>
             </tr>
             <tr>
@@ -103,11 +100,9 @@
                 <td><label><input type="text" name="product.cost" value=""/></label></td>
                 <td><label><input type="text" name="product.list_price" value=""/></label></td>
                 <td><label><input type="text" name="product.deliveryCost" value=""/></label></td>
-                <td><label><input type="text" name="product.is_active" value=""/></label></td>
                 <td>
-                    <jsp:include page="../templates/selectState.html"></jsp:include>
+                    <jsp:include page="../templates/selectActive.html"></jsp:include>
                 </td>
-
 
                 <td>
                     <form action="../inventoryServlet" method="GET">
@@ -117,16 +112,17 @@
             </tr>
             <c:forEach var="productList" items="${productList}">
                 <tr>
-                    <td>${productList.id}</td>
-                    <td>${productList.name}</td>
-                    <td>${productList.modelNumber}</td>
-                    <td>${productList.serialNumber}</td>
+                    <td>${productList.product_id}</td>
+                    <td>${productList.product_name}</td>
+                    <td>${productList.category_name}</td>
+                    <td>${productList.inventory_count}</td>
+                    <td>${productList.model_num}</td>
+                    <td>${productList.serial_num}</td>
                     <td>${productList.description}</td>
-                    <td>${productList.retailPrice}</td>
-                    <td>${productList.listedPrice}</td>
+                    <td>${productList.cost}</td>
+                    <td>${productList.list_price}</td>
                     <td>${productList.deliveryCost}</td>
-                    <td>${productList.inventoryCount}</td>
-                    <td>${productList.category}</td>
+                    <td>${productList.is_active}</td>
                     <td>
                         <a href="edit?id=<c:out value='${productList.id}' />">Edit</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
@@ -136,16 +132,17 @@
             </c:forEach>
             <%--Sample layout--%>
             <tr>
-                <td>{productList.id}</td>
-                <td>{productList.name}</td>
-                <td>{productList.modelNumber}</td>
-                <td>{productList.serialNumber}</td>
+                <td>{productList.product_id}</td>
+                <td>{productList.product_name}</td>
+                <td>{productList.category_name}</td>
+                <td>{productList.inventory_count}</td>
+                <td>{productList.model_num}</td>
+                <td>{productList.serial_num}</td>
                 <td>{productList.description}</td>
-                <td>{productList.retailPrice}</td>
-                <td>{productList.listedPrice}</td>
+                <td>{productList.cost}</td>
+                <td>{productList.list_price}</td>
                 <td>{productList.deliveryCost}</td>
-                <td>{productList.inventoryCount}</td>
-                <td>{productList.category}</td>
+                <td>{productList.is_active}</td>
                 <td>
                     <a href="edit?id=<c:out value='${productList.id}' />">Edit</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;

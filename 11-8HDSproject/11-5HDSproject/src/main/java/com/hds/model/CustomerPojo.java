@@ -7,7 +7,7 @@ import java.util.List;
 @Entity
 //@Entity(name = "Customer")
 @Table(name = "Customer")
-public class Customer
+public class CustomerPojo
 {
 
 	@Id

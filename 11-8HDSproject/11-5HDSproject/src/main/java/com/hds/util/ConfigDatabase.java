@@ -1,12 +1,9 @@
 package com.hds.util;
 
-import com.hds.model.Address;
-import com.hds.model.Customer;
+import com.hds.model.CustomerPojo;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
-import javax.persistence.Query;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +11,7 @@ import java.util.List;
 public class ConfigDatabase
 {
 
-	public void addItem(Customer customerPojo)
+	public void addItem(CustomerPojo customerPojo)
 	{
 		Transaction transaction = null;
 		try (
@@ -44,7 +41,7 @@ public class ConfigDatabase
 		{
 			transaction = session.beginTransaction();
 
-			Customer customerPojo = session.get(Customer.class, idToDoList);
+			CustomerPojo customerPojo = session.get(CustomerPojo.class, idToDoList);
 			if(customerPojo != null)
 			{
 				// deleting to_do item
@@ -63,16 +60,16 @@ public class ConfigDatabase
 		}
 	}
 
-	public Customer getItem(int id)
+	public CustomerPojo getItem(int id)
 	{
 		Transaction transaction = null;
-		Customer customerPojo = null;
+		CustomerPojo customerPojo = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession())
 		{
 			transaction = session.beginTransaction();
 
 			// getting to_do item
-			customerPojo = session.get(Customer.class, id);
+			customerPojo = session.get(CustomerPojo.class, id);
 
 			transaction.commit();
 		}catch(Exception e)
@@ -89,7 +86,7 @@ public class ConfigDatabase
 	public List viewDB()
 	{
 		Transaction transaction = null;
-		List customerList = new ArrayList<Customer>();
+		List customerList = new ArrayList<CustomerPojo>();
 		try (Session session = HibernateUtil.getSessionFactory().openSession())
 		{
 			session.beginTransaction();
@@ -115,7 +112,7 @@ public class ConfigDatabase
 			List<Object[]> rows = query.list();
 			for(Object[] row : rows)
 			{
-				Customer customer = new Customer();
+				CustomerPojo customer = new CustomerPojo();
 				customer.setCustomer_id(Integer.parseInt(row[0].toString()));
 				// skip row[1] since we don't need to display addressID
 				customer.setCustomer_last_name(row[1].toString());
