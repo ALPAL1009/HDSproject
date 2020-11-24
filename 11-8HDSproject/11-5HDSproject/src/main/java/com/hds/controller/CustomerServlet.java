@@ -30,7 +30,7 @@ public class CustomerServlet extends HttpServlet
 			System.out.println("Populate customer list ");
 
 			List<CustomerPojo> customerList;
-			customerList = configDatabase.viewDB();
+			customerList = configDatabase.customerViewDB();
 
 			request.setAttribute("customerList", customerList);
 			RequestDispatcher rd = request.getRequestDispatcher("/employeeSection/customerRecords.jsp");

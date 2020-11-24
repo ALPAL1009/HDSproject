@@ -113,8 +113,8 @@
             <c:forEach var="productList" items="${productList}">
                 <tr>
                     <td>${productList.product_id}</td>
-                    <td>${productList.product_name}</td>
-                    <td>${productList.category_name}</td>
+                    <td>${productList.brandName}</td>
+                    <td>${productList.categoryName}</td>
                     <td>${productList.inventory_count}</td>
                     <td>${productList.model_num}</td>
                     <td>${productList.serial_num}</td>
@@ -123,11 +123,11 @@
                     <td>${productList.list_price}</td>
                     <td>${productList.deliveryCost}</td>
                     <td>${productList.is_active}</td>
-                    <td>
-                        <a href="edit?id=<c:out value='${productList.id}' />">Edit</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="delete?id=<c:out value='${productList.id}' />">Delete</a>
-                    </td>
+<%--                    <td>--%>
+<%--                        <a href="edit?id=<c:out value='${productList.id}' />">Edit</a>--%>
+<%--                        &nbsp;&nbsp;&nbsp;&nbsp;--%>
+<%--                        <a href="delete?id=<c:out value='${productList.id}' />">Delete</a>--%>
+<%--                    </td>--%>
                 </tr>
             </c:forEach>
             <%--Sample layout--%>
@@ -143,11 +143,11 @@
                 <td>{productList.list_price}</td>
                 <td>{productList.deliveryCost}</td>
                 <td>{productList.is_active}</td>
-                <td>
-                    <a href="edit?id=<c:out value='${productList.id}' />">Edit</a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="delete?id=<c:out value='${productList.id}' />">Delete</a>
-                </td>
+<%--                <td>--%>
+<%--                    <a href="edit?id=<c:out value='${productList.id}' />">Edit</a>--%>
+<%--                    &nbsp;&nbsp;&nbsp;&nbsp;--%>
+<%--                    <a href="delete?id=<c:out value='${productList.id}' />">Delete</a>--%>
+<%--                </td>--%>
             </tr>
         </table>
 

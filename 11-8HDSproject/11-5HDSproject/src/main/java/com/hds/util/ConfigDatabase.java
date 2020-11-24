@@ -1,6 +1,7 @@
 package com.hds.util;
 
 import com.hds.model.CustomerPojo;
+import com.hds.model.ProductPojo;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -83,14 +84,69 @@ public class ConfigDatabase
 		return customerPojo;
 	}
 
-	public List viewDB()
+	public List inventoryViewDB()
+	{
+		Transaction transaction = null;
+		List productList = new ArrayList<ProductPojo>();
+		try (Session session = HibernateUtil.getSessionFactory().openSession())
+		{
+			session.beginTransaction();
+
+			SQLQuery query = session.createSQLQuery("SELECT \n" +
+					"    product.ProductID,\n" +
+					"    productbrand.ProductName,\n" +
+					"    product.CategoryID,\n" +
+					"    product.InventoryCount,\n" +
+					"    product.ModelNum,\n" +
+					"    product.SerialNum,\n" +
+					"    product.Description,\n" +
+					"    product.Cost,\n" +
+					"    product.ListPrice,\n" +
+					"    product.DeliveryCost,\n" +
+					"    product.IsActive\n" +
+					"FROM\n" +
+					"    hds.product \n" +
+					"    join hds.productbrand\n" +
+					"\t\ton product.BrandID = productbrand.BrandID;  ");
+			List<Object[]> rows = query.list();
+			for(Object[] row : rows)
+			{
+				ProductPojo product = new ProductPojo();
+				product.setProduct_id(Integer.parseInt(row[0].toString()));
+				product.setBrandName(row[1].toString());
+				if(row[2] != null)
+					product.setCategoryName(row[2].toString());
+				if(row[3] != null)
+					product.setInventory_count(Integer.parseInt(row[3].toString()));
+				product.setModel_num(row[4].toString());
+				product.setSerial_num(Integer.parseInt(row[5].toString()));
+				product.setDescription(row[6].toString());
+				product.setCost(Double.parseDouble(row[7].toString()));
+				product.setList_price(Double.parseDouble(row[8].toString()));
+				if(row[9] != null)
+					product.setDeliveryCost(Integer.parseInt(row[9].toString()));
+				product.setIs_active(row[10].toString());
+				productList.add(product);
+			}
+
+		}catch(Exception e)
+		{
+			if(transaction != null)
+			{
+				transaction.rollback();
+			}
+			e.printStackTrace();
+		}
+		return productList;
+	}
+
+	public List customerViewDB()
 	{
 		Transaction transaction = null;
 		List customerList = new ArrayList<CustomerPojo>();
 		try (Session session = HibernateUtil.getSessionFactory().openSession())
 		{
 			session.beginTransaction();
-
 
 			SQLQuery query = session.createSQLQuery("SELECT \n" +
 					"    c.CustomerID,\n" +
@@ -131,12 +187,6 @@ public class ConfigDatabase
 				customerList.add(customer);
 			}
 
-//			customerList = query.getResultList();
-			//			for(TodolistEntity list : toDoLists)
-			//			{
-			//				System.out.println(list);
-			//			}
-
 		}catch(Exception e)
 		{
 			if(transaction != null)
@@ -147,6 +197,5 @@ public class ConfigDatabase
 		}
 		return customerList;
 	}
-
 }
 
