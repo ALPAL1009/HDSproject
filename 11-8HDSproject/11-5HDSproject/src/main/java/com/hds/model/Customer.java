@@ -16,32 +16,18 @@ public class Customer
 	private int customer_id;
 
 	// **this is the original
-	//	    @Column(name = "AddressID")
-	//	    private String customer_address_id;
-	//
-	//	    public String getCustomer_address_id()
-	//	    {
-	//	        return customer_address_id;
-	//	    }
-	//
-	//	    public void setCustomer_address_id(String customer_address_id)
-	//	    {
-	//	        this.customer_address_id = customer_address_id;
-	//	    }
-		@ManyToOne(targetEntity = Address.class)
-		@JoinColumn(name = "ADDRESS_ID")
-		private Address address;
+	@Column(name = "AddressID")
+	private String customer_address_id;
 
-		public Address getAddress()
-		{
-			return address;
-		}
+	public String getCustomer_address_id()
+	{
+		return customer_address_id;
+	}
 
-		public void setAddress(Address address)
-		{
-			this.address = address;
-		}
-
+	public void setCustomer_address_id(String customer_address_id)
+	{
+		this.customer_address_id = customer_address_id;
+	}
 
 	@Column(name = "LastName")
 	private String customer_last_name;
@@ -61,6 +47,56 @@ public class Customer
 	@Column(name = "OrderCount")
 	private int customer_order_count;
 
+	@Column(name = "AccountBalance")
+	private double customer_account_balance;
+
+	private String street;
+
+	public String getStreet()
+	{
+		return street;
+	}
+
+	public void setStreet(String street)
+	{
+		this.street = street;
+	}
+
+	private String city;
+
+	public String getCity()
+	{
+		return city;
+	}
+
+	public void setCity(String city)
+	{
+		this.city = city;
+	}
+
+	private String state;
+
+	public String getState()
+	{
+		return state;
+	}
+
+	public void setState(String state)
+	{
+		this.state = state;
+	}
+
+	private int zip;
+
+	public int getZip()
+	{
+		return zip;
+	}
+
+	public void setZip(int zip)
+	{
+		this.zip = zip;
+	}
 	// Getter Setter methods
 
 	public int getCustomer_id()
@@ -131,5 +167,15 @@ public class Customer
 	public void setCustomer_order_count(int customer_order_count)
 	{
 		this.customer_order_count = customer_order_count;
+	}
+
+	public double getCustomer_account_balance()
+	{
+		return customer_account_balance;
+	}
+
+	public void setCustomer_account_balance(double customer_account_balance)
+	{
+		this.customer_account_balance = customer_account_balance;
 	}
 }

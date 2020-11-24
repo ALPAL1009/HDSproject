@@ -142,9 +142,9 @@
                 <td>{customerList.phNumber}</td>
                 <td>{customerList.email}</td>
                 <td>
-                    <a href="edit?id=<c:out value='${customerList.id}' />">Edit</a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="delete?id=<c:out value='${customerList.id}' />">Delete</a>
+<%--                    <a href="edit?id=<c:out value='${customerList.id}' />">Edit</a>--%>
+<%--                    &nbsp;&nbsp;&nbsp;&nbsp;--%>
+<%--                    <a href="delete?id=<c:out value='${customerList.id}' />">Delete</a>--%>
                 </td>
             </tr>
         </table>
