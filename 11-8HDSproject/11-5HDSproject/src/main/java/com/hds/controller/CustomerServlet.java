@@ -58,6 +58,18 @@ public class CustomerServlet extends HttpServlet
 
 		if(request.getParameter("Add New Customer") != null)
 		{
+			System.out.println("Get ADD");
+			String customer_last_name = request.getParameter("cus_last_name");
+			String customer_first_name = request.getParameter("cus_first_name");
+			String customer_mi = request.getParameter("cus_mi");
+			String customer_phone_num = request.getParameter("cus_phone_num");
+			String customer_email = request.getParameter("cus_email");
+
+			CustomerPojo customerPojo = new CustomerPojo(customer_last_name, customer_first_name, customer_mi, customer_phone_num, customer_email);
+			System.out.println("Got info");
+			configDatabase.addCustomer(customerPojo);
+
+
 			//get the Attributes and combine them and add new customer
 			//and return back to customer records with new customer added
 			RequestDispatcher rd = request.getRequestDispatcher("/employeeSection/customerRecords.jsp");

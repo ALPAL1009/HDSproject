@@ -44,7 +44,7 @@ public class HibernateUtil {
                 config.setProperties(settings);
 
                 // CustomerPojo "test" change if necessary
-//                config.addAnnotatedClass(CustomerPojo.class);
+                config.addAnnotatedClass(CustomerPojo.class);
 
                 ServiceRegistry sr = new StandardServiceRegistryBuilder()
                         .applySettings(config.getProperties()).build();

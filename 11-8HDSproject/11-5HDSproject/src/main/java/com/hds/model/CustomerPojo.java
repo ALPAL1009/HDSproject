@@ -11,8 +11,8 @@ public class CustomerPojo
 {
 
 	@Id
-	@Column(name = "CustomerID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "CustomerID")
 	private int customer_id;
 
 	// **this is the original
@@ -49,6 +49,20 @@ public class CustomerPojo
 
 	@Column(name = "AccountBalance")
 	private double customer_account_balance;
+
+	public CustomerPojo()
+	{
+	}
+
+	public CustomerPojo(String customer_last_name, String customer_first_name, String customer_mi, String customer_phone_num,
+			String customer_email)
+	{
+		this.customer_last_name = customer_last_name;
+		this.customer_first_name = customer_first_name;
+		this.customer_mi = customer_mi;
+		this.customer_phone_num = customer_phone_num;
+		this.customer_email = customer_email;
+	}
 
 	private String street;
 

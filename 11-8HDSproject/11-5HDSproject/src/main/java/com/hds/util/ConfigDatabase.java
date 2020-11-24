@@ -12,15 +12,15 @@ import java.util.List;
 public class ConfigDatabase
 {
 
-	public void addItem(CustomerPojo customerPojo)
-	{
+	public void addCustomer(CustomerPojo customerPojo)
+	{System.out.println("Testing");
 		Transaction transaction = null;
 		try (
 				Session session = HibernateUtil.getSessionFactory().openSession())
 		{
 			transaction = session.beginTransaction();
 
-			// saving to_do item
+
 			session.save(customerPojo);
 
 			transaction.commit();
