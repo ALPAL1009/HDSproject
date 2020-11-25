@@ -80,53 +80,53 @@ public class ConfigDatabase
 
 
 
-	public void deleteItem(int idToDoList)
-	{
-		Transaction transaction = null;
-		try (Session session = HibernateUtil.getSessionFactory().openSession())
-		{
-			transaction = session.beginTransaction();
+//	public void deleteItem(int idToDoList)
+//	{
+//		Transaction transaction = null;
+//		try (Session session = HibernateUtil.getSessionFactory().openSession())
+//		{
+//			transaction = session.beginTransaction();
+//
+//			CustomerPojo customerPojo = session.get(CustomerPojo.class, idToDoList);
+//			if(customerPojo != null)
+//			{
+//				// deleting to_do item
+//				session.delete(customerPojo);
+//				System.out.println("Deleted todolistEntity item");
+//			}
+//
+//			transaction.commit();
+//		}catch(Exception e)
+//		{
+//			if(transaction != null)
+//			{
+//				transaction.rollback();
+//			}
+//			e.printStackTrace();
+//		}
+//	}
 
-			CustomerPojo customerPojo = session.get(CustomerPojo.class, idToDoList);
-			if(customerPojo != null)
-			{
-				// deleting to_do item
-				session.delete(customerPojo);
-				System.out.println("Deleted todolistEntity item");
-			}
-
-			transaction.commit();
-		}catch(Exception e)
-		{
-			if(transaction != null)
-			{
-				transaction.rollback();
-			}
-			e.printStackTrace();
-		}
-	}
-
-	public CustomerPojo getItem(int id)
-	{
-		Transaction transaction = null;
-		CustomerPojo customerPojo = null;
-		try (Session session = HibernateUtil.getSessionFactory().openSession())
-		{
-			transaction = session.beginTransaction();
-
-			customerPojo = session.get(CustomerPojo.class, id);
-
-			transaction.commit();
-		}catch(Exception e)
-		{
-			if(transaction != null)
-			{
-				transaction.rollback();
-			}
-			e.printStackTrace();
-		}
-		return customerPojo;
-	}
+//	public CustomerPojo getItem(int id)
+//	{
+//		Transaction transaction = null;
+//		CustomerPojo customerPojo = null;
+//		try (Session session = HibernateUtil.getSessionFactory().openSession())
+//		{
+//			transaction = session.beginTransaction();
+//
+//			customerPojo = session.get(CustomerPojo.class, id);
+//
+//			transaction.commit();
+//		}catch(Exception e)
+//		{
+//			if(transaction != null)
+//			{
+//				transaction.rollback();
+//			}
+//			e.printStackTrace();
+//		}
+//		return customerPojo;
+//	}
 
 	public List inventoryViewDB()
 	{
