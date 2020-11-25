@@ -1,5 +1,6 @@
 package com.hds.util;
 
+import com.hds.model.AddressPojo;
 import com.hds.model.CustomerPojo;
 import com.hds.model.ProductPojo;
 import org.hibernate.SQLQuery;
@@ -11,17 +12,59 @@ import java.util.List;
 
 public class ConfigDatabase
 {
+	public int getNextAddressId()
+	{
+		Transaction transaction = null;
+		int addressID = 0;
+		try (Session session = HibernateUtil.getSessionFactory().openSession())
+		{
+			session.beginTransaction();
+			String queryString = "select max(AddressID) from hds.address";
+			List IDResult = session.createSQLQuery(queryString).list();
+			addressID = Integer.parseInt(IDResult.get(0).toString()) + 1;
 
-	public void addCustomer(CustomerPojo customerPojo)
-	{System.out.println("Testing");
+		}catch(Exception e)
+		{
+			if(transaction != null)
+			{
+				transaction.rollback();
+			}
+			e.printStackTrace();
+		}
+		return addressID;
+	}
+
+	public int getNextCustomerId()
+	{
+		Transaction transaction = null;
+		int customerID = 0;
+		try (Session session = HibernateUtil.getSessionFactory().openSession())
+		{
+			session.beginTransaction();
+			String queryString = "select max(CustomerID) from hds.customer";
+			List customerIDResult = session.createSQLQuery(queryString).list();
+			customerID = Integer.parseInt(customerIDResult.get(0).toString()) + 1;
+
+		}catch(Exception e)
+		{
+			if(transaction != null)
+			{
+				transaction.rollback();
+			}
+			e.printStackTrace();
+		}
+		return customerID;
+	}
+	public void addToDataBase(Object object)
+	{
+		System.out.println("Adding " + object.toString());
 		Transaction transaction = null;
 		try (
 				Session session = HibernateUtil.getSessionFactory().openSession())
 		{
 			transaction = session.beginTransaction();
 
-
-			session.save(customerPojo);
+			session.save(object);
 
 			transaction.commit();
 
@@ -34,6 +77,8 @@ public class ConfigDatabase
 			e.printStackTrace();
 		}
 	}
+
+
 
 	public void deleteItem(int idToDoList)
 	{
@@ -69,7 +114,6 @@ public class ConfigDatabase
 		{
 			transaction = session.beginTransaction();
 
-			// getting to_do item
 			customerPojo = session.get(CustomerPojo.class, id);
 
 			transaction.commit();

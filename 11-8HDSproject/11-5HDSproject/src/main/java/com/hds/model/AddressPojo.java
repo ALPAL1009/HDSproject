@@ -25,8 +25,9 @@ public class AddressPojo
 	@Column(name = "Zip")
 	private String zip;
 
-	public AddressPojo(String street, String city, String state, String zip)
+	public AddressPojo(int address_id,String street, String city, String state, String zip)
 	{
+		this.address_id = address_id;
 		this.street = street;
 		this.city = city;
 		this.state = state;

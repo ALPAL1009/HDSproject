@@ -54,9 +54,10 @@ public class CustomerPojo
 	{
 	}
 
-	public CustomerPojo(String customer_last_name, String customer_first_name, String customer_mi, String customer_phone_num,
+	public CustomerPojo(int customer_id, String customer_last_name, String customer_first_name, String customer_mi, String customer_phone_num,
 			String customer_email)
 	{
+		this.customer_id = customer_id;
 		this.customer_last_name = customer_last_name;
 		this.customer_first_name = customer_first_name;
 		this.customer_mi = customer_mi;

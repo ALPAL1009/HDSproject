@@ -1,5 +1,6 @@
 package com.hds.controller;
 
+import com.hds.model.AddressPojo;
 import com.hds.model.CustomerPojo;
 import com.hds.util.ConfigDatabase;
 
@@ -59,15 +60,26 @@ public class CustomerServlet extends HttpServlet
 		if(request.getParameter("Add New Customer") != null)
 		{
 			System.out.println("Get ADD");
+			int customer_address_id = configDatabase.getNextAddressId();
+			System.out.println("Next Id is: " + customer_address_id);
+			String street = request.getParameter("address_street");
+			String city = request.getParameter("address_city");
+			String state = request.getParameter("selState");
+			String zip= request.getParameter("address_zip");
+			AddressPojo addressPojo = new AddressPojo(customer_address_id,street,city,state,zip);
+			configDatabase.addToDataBase(addressPojo);
+
+			int customer_id = configDatabase.getNextCustomerId();
+			System.out.println("Next Id is: " + customer_id);
 			String customer_last_name = request.getParameter("cus_last_name");
 			String customer_first_name = request.getParameter("cus_first_name");
 			String customer_mi = request.getParameter("cus_mi");
 			String customer_phone_num = request.getParameter("cus_phone_num");
 			String customer_email = request.getParameter("cus_email");
 
-			CustomerPojo customerPojo = new CustomerPojo(customer_last_name, customer_first_name, customer_mi, customer_phone_num, customer_email);
+			CustomerPojo customerPojo = new CustomerPojo(customer_id,customer_last_name, customer_first_name, customer_mi, customer_phone_num, customer_email);
 			System.out.println("Got info");
-			configDatabase.addCustomer(customerPojo);
+			configDatabase.addToDataBase(customerPojo);
 
 
 			//get the Attributes and combine them and add new customer

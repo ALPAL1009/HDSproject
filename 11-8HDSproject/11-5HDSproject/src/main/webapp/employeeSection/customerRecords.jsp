@@ -100,13 +100,13 @@
                     <td><label><input type="text" name="cus_first_name" value=""/></label>
                     </td>
                     <td><label><input type="text" name="cus_mi" value=""/></label></td>
-                    <td><label><input type="text" name="street" value=""/></label>
+                    <td><label><input type="text" name="address_street" value=""/></label>
                     </td>
-                    <td><label><input type="text" name="city" value=""/></label></td>
+                    <td><label><input type="text" name="address_city" value=""/></label></td>
                     <td>
                         <jsp:include page="../templates/selectState.html"></jsp:include>
                     </td>
-                    <td><label><input type="text" name="zip" value=""/></label></td>
+                    <td><label><input type="text" name="address_zip" value=""/></label></td>
                     <td><label><input type="tel" name="cus_phone_num" value=""/></label>
                     </td>
                     <td><label><input type="email" name="cus_email" value=""/></label>
