@@ -91,26 +91,35 @@
             </tr>
             <tr>
                 <%--Add new Customer--%>
-                <td><label><input type="text" name="customerID" value=""/></label></td>
-                    <td><label><input type="text" name="cus.lastName" value=""/></label></td>
-                <td><label><input type="text" name="cus.firstName" value=""/></label></td>
-                <td><label><input type="text" name="cus.middleInitial" value=""/></label></td>
-                <td><label><input type="text" name="cus.streetAddress" value=""/></label>
-                </td>
-                <td><label><input type="text" name="cus.city" value=""/></label></td>
-                <td>
-                    <jsp:include page="../templates/selectState.html"></jsp:include>
-                </td>
-                <td><label><input type="text" name="cus.zip" value=""/></label></td>
-                <td><label><input type="tel" name="cus.phNumber" value=""/></label></td>
-                <td><label><input type="email" name="cus.email" value=""/></label></td>
-                <td>
-                    <form action="../customerServlet" method="POST">
-                        <input type="submit" name="Add New Customer" value="Add New Customer">
-                    </form>
-                </td>
+                <form action="../customerServlet" method="GET">
+                    <td>
+
+                    </td>
+                    <td><label><input type="text" name="cus_last_name" value=""/></label>
+                    </td>
+                    <td><label><input type="text" name="cus_first_name" value=""/></label>
+                    </td>
+                    <td><label><input type="text" name="cus_mi" value=""/></label></td>
+                    <td><label><input type="text" name="address_street" value=""/></label>
+                    </td>
+                    <td><label><input type="text" name="address_city" value=""/></label>
+                    </td>
+                    <td>
+                        <jsp:include page="../templates/selectState.html"></jsp:include>
+                    </td>
+                    <td><label><input type="text" name="address_zip" value=""/></label>
+                    </td>
+                    <td><label><input type="tel" name="cus_phone_num" value=""/></label>
+                    </td>
+                    <td><label><input type="email" name="cus_email" value=""/></label>
+                    </td>
+                    <td><input type="submit" name="Add New Customer"
+                               value="Add New Customer"></td>
+                </form>
+
             </tr>
             <c:forEach var="customerList" items="${customerList}">
+
                 <tr>
                     <td>${customerList.customer_id}</td>
                     <td>${customerList.customer_last_name}</td>
@@ -123,11 +132,12 @@
                     <td>${customerList.customer_phone_num}</td>
                     <td>${customerList.customer_email}</td>
                     <td>
-<%--                        <a href="edit?id=<c:out value='${customerList.id}' />">Edit</a>--%>
+                            <%--                        <a href="edit?id=<c:out value='${customerList.id}' />">Edit</a>--%>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-<%--                        <a href="delete?id=<c:out value='${customerList.id}' />">Delete</a>--%>
+                            <%--                        <a href="delete?id=<c:out value='${customerList.id}' />">Delete</a>--%>
                     </td>
                 </tr>
+
             </c:forEach>
             <%--Sample layout--%>
             <tr>
@@ -142,9 +152,9 @@
                 <td>{customerList.phNumber}</td>
                 <td>{customerList.email}</td>
                 <td>
-                    <a href="edit?id=<c:out value='${customerList.id}' />">Edit</a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="delete?id=<c:out value='${customerList.id}' />">Delete</a>
+                    <%--                    <a href="edit?id=<c:out value='${customerList.id}' />">Edit</a>--%>
+                    <%--                    &nbsp;&nbsp;&nbsp;&nbsp;--%>
+                    <%--                    <a href="delete?id=<c:out value='${customerList.id}' />">Delete</a>--%>
                 </td>
             </tr>
         </table>

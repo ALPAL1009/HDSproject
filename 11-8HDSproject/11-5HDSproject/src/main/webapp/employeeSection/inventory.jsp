@@ -74,32 +74,36 @@
 
         <h1>Inventory<br><br></h1>
 
-
         <table id="inventoryTable">
             <tr>
                 <th>Product ID</th>
-                <th>Name</th>
+                <th>Brand</th>
+                <th>Category</th>
+                <th>Inventory Count</th>
                 <th>Model Number</th>
                 <th>Serial Number</th>
                 <th>Description</th>
-                <th>Retail Price</th>
+                <th>Cost</th>
                 <th>Listed Price</th>
                 <th>Delivery Cost</th>
-                <th>Inventory Count</th>
-                <th>Category</th>
+                <th>Is Active</th>
                 <th> </th>
             </tr>
             <tr>
-                <td><label><input type="text" name="productId" value=""/></label></td>
-                <td><label><input type="text" name="product.name" value=""/></label></td>
-                <td><label><input type="text" name="product.modelNumber" value=""/></label></td>
-                <td><label><input type="text" name="product.serialNumber" value=""/></label></td>
+                <td><label><input type="text" name="product.product_id" value=""/></label></td>
+                <td><label><input type="text" name="product.product_name" value=""/></label></td>
+                <td><label><input type="text" name="product.category_name" value=""/></label></td>
+                <td><label><input type="text" name="product.inventory_count" value=""/></label></td>
+                <td><label><input type="text" name="product.model_num" value=""/></label></td>
+                <td><label><input type="text" name="product.serial_num" value=""/></label></td>
                 <td><label><input type="text" name="product.description" value=""/></label></td>
-                <td><label><input type="text" name="product.retailPrice" value=""/></label></td>
-                <td><label><input type="text" name="product.listedPrice" value=""/></label></td>
+                <td><label><input type="text" name="product.cost" value=""/></label></td>
+                <td><label><input type="text" name="product.list_price" value=""/></label></td>
                 <td><label><input type="text" name="product.deliveryCost" value=""/></label></td>
-                <td><label><input type="text" name="product.inventoryCount" value=""/></label></td>
-                <td><label><input type="text" name="product.category" value=""/></label></td>
+                <td>
+                    <jsp:include page="../templates/selectActive.html"></jsp:include>
+                </td>
+
                 <td>
                     <form action="../inventoryServlet" method="GET">
                         <input type="submit" name="Add New Product" value="Add New Product">
@@ -108,40 +112,42 @@
             </tr>
             <c:forEach var="productList" items="${productList}">
                 <tr>
-                    <td>${productList.id}</td>
-                    <td>${productList.name}</td>
-                    <td>${productList.modelNumber}</td>
-                    <td>${productList.serialNumber}</td>
+                    <td>${productList.product_id}</td>
+                    <td>${productList.brandName}</td>
+                    <td>${productList.categoryName}</td>
+                    <td>${productList.inventory_count}</td>
+                    <td>${productList.model_num}</td>
+                    <td>${productList.serial_num}</td>
                     <td>${productList.description}</td>
-                    <td>${productList.retailPrice}</td>
-                    <td>${productList.listedPrice}</td>
+                    <td>${productList.cost}</td>
+                    <td>${productList.list_price}</td>
                     <td>${productList.deliveryCost}</td>
-                    <td>${productList.inventoryCount}</td>
-                    <td>${productList.category}</td>
-                    <td>
-                        <a href="edit?id=<c:out value='${productList.id}' />">Edit</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="delete?id=<c:out value='${productList.id}' />">Delete</a>
-                    </td>
+                    <td>${productList.is_active}</td>
+<%--                    <td>--%>
+<%--                        <a href="edit?id=<c:out value='${productList.id}' />">Edit</a>--%>
+<%--                        &nbsp;&nbsp;&nbsp;&nbsp;--%>
+<%--                        <a href="delete?id=<c:out value='${productList.id}' />">Delete</a>--%>
+<%--                    </td>--%>
                 </tr>
             </c:forEach>
             <%--Sample layout--%>
             <tr>
-                <td>{productList.id}</td>
-                <td>{productList.name}</td>
-                <td>{productList.modelNumber}</td>
-                <td>{productList.serialNumber}</td>
+                <td>{productList.product_id}</td>
+                <td>{productList.product_name}</td>
+                <td>{productList.category_name}</td>
+                <td>{productList.inventory_count}</td>
+                <td>{productList.model_num}</td>
+                <td>{productList.serial_num}</td>
                 <td>{productList.description}</td>
-                <td>{productList.retailPrice}</td>
-                <td>{productList.listedPrice}</td>
+                <td>{productList.cost}</td>
+                <td>{productList.list_price}</td>
                 <td>{productList.deliveryCost}</td>
-                <td>{productList.inventoryCount}</td>
-                <td>{productList.category}</td>
-                <td>
-                    <a href="edit?id=<c:out value='${productList.id}' />">Edit</a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="delete?id=<c:out value='${productList.id}' />">Delete</a>
-                </td>
+                <td>{productList.is_active}</td>
+<%--                <td>--%>
+<%--                    <a href="edit?id=<c:out value='${productList.id}' />">Edit</a>--%>
+<%--                    &nbsp;&nbsp;&nbsp;&nbsp;--%>
+<%--                    <a href="delete?id=<c:out value='${productList.id}' />">Delete</a>--%>
+<%--                </td>--%>
             </tr>
         </table>
 

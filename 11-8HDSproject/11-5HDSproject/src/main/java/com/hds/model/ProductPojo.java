@@ -14,15 +14,38 @@ public class ProductPojo {
     @Column(name = "BrandID")
     private int brand_id;
 
+    private String brandName;
+
+    public String getBrandName()
+    {
+        return brandName;
+    }
+
+    public void setBrandName(String brandName)
+    {
+        this.brandName = brandName;
+    }
+
     @Column(name = "CategoryID")
     private int category_id;
+
+    private String categoryName;
+
+    public String getCategoryName()
+    {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName)
+    {
+        this.categoryName = categoryName;
+    }
 
     @Column(name = "InventoryCount")
     private int inventory_count;
 
     @Column(name = "ModelNum")
     private String model_num;
-
 
     @Column(name = "SerialNum")
     private int serial_num;
@@ -36,8 +59,20 @@ public class ProductPojo {
     @Column(name = "ListPrice")
     private double list_price;
 
+    private int deliveryCost;
+
+    public int getDeliveryCost()
+    {
+        return deliveryCost;
+    }
+
+    public void setDeliveryCost(int deliveryCost)
+    {
+        this.deliveryCost = deliveryCost;
+    }
+
     @Column(name = "IsActive")
-    private boolean is_active;
+    private String is_active;
 
 
     // Getter Setter methods
@@ -115,11 +150,13 @@ public class ProductPojo {
         this.list_price = list_price;
     }
 
-    public boolean isIs_active() {
+    public String getIs_active()
+    {
         return is_active;
     }
 
-    public void setIs_active(boolean is_active) {
+    public void setIs_active(String is_active)
+    {
         this.is_active = is_active;
     }
 }

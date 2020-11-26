@@ -1,6 +1,7 @@
 package com.hds.controller;
 
-import com.hds.model.Customer;
+import com.hds.model.AddressPojo;
+import com.hds.model.CustomerPojo;
 import com.hds.util.ConfigDatabase;
 
 import javax.servlet.RequestDispatcher;
@@ -29,8 +30,9 @@ public class CustomerServlet extends HttpServlet
 		{
 			System.out.println("Populate customer list ");
 
-			List<Customer> customerList;
-			customerList = configDatabase.viewDB();
+			//Fetch
+			List<CustomerPojo> customerList;
+			customerList = configDatabase.customerViewDB();
 
 			request.setAttribute("customerList", customerList);
 			RequestDispatcher rd = request.getRequestDispatcher("/employeeSection/customerRecords.jsp");
@@ -58,8 +60,46 @@ public class CustomerServlet extends HttpServlet
 
 		if(request.getParameter("Add New Customer") != null)
 		{
-			//get the Attributes and combine them and add new customer
-			//and return back to customer records with new customer added
+			System.out.println("Get ADD");
+
+			//Request Parameters from customerRecords.jsp
+			int customer_address_id = configDatabase.getNextAddressId();
+			System.out.println("Next Id is: " + customer_address_id);
+			String street = request.getParameter("address_street");
+			System.out.println(street);
+			String city = request.getParameter("address_city");
+			System.out.println(city);
+			String state = request.getParameter("selState");
+			System.out.println(state);
+			int zip = Integer.parseInt(request.getParameter("address_zip"));
+			System.out.println(zip);
+			int customer_id = configDatabase.getNextCustomerId();
+			System.out.println("Next Id is: " + customer_id);
+			String customer_last_name = request.getParameter("cus_last_name");
+			String customer_first_name = request.getParameter("cus_first_name");
+			String customer_mi = request.getParameter("cus_mi");
+			String customer_phone_num = request.getParameter("cus_phone_num");
+			String customer_email = request.getParameter("cus_email");
+
+			//Create the Address object first
+			//Address object is created first because the AddressId is needed for
+			//Customer object
+			//update address database
+			AddressPojo addressPojo = new AddressPojo(customer_address_id, street, city, state, zip);
+			configDatabase.addToDataBase(addressPojo);
+
+			//Create the Customer object and update customer database
+			CustomerPojo customerPojo = new CustomerPojo(customer_id, customer_address_id, customer_last_name, customer_first_name, customer_mi,
+					customer_phone_num,
+					customer_email);
+			System.out.println("Got info");
+			configDatabase.addToDataBase(customerPojo);
+
+			//Fetch
+			List<CustomerPojo> customerList;
+			customerList = configDatabase.customerViewDB();
+
+			request.setAttribute("customerList", customerList);
 			RequestDispatcher rd = request.getRequestDispatcher("/employeeSection/customerRecords.jsp");
 			rd.forward(request, response);
 		}

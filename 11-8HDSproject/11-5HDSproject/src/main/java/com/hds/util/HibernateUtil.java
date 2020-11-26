@@ -1,7 +1,9 @@
 package com.hds.util;
 
 import java.util.Properties;
-import com.hds.model.Customer;
+
+import com.hds.model.AddressPojo;
+import com.hds.model.CustomerPojo;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -28,7 +30,6 @@ public class HibernateUtil {
                 // README - update password before running to match user's authentication
                 // Add database
                 settings.put(Environment.URL, "jdbc:mysql://localhost:3306/hds");
-
                 // add user
                 settings.put(Environment.USER, "root");
                 // add password
@@ -45,7 +46,8 @@ public class HibernateUtil {
                 config.setProperties(settings);
 
                 // CustomerPojo "test" change if necessary
-                config.addAnnotatedClass(Customer.class);
+                config.addAnnotatedClass(CustomerPojo.class);
+                config.addAnnotatedClass(AddressPojo.class);
 
                 ServiceRegistry sr = new StandardServiceRegistryBuilder()
                         .applySettings(config.getProperties()).build();

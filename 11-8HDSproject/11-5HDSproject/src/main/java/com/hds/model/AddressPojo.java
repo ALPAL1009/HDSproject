@@ -5,12 +5,12 @@ import javax.persistence.*;
 @Entity
 //@Entity(name = "Address")
 @Table(name = "Address")
-public class Address
+public class AddressPojo
 {
 
 	@Id
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "AddressID")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int address_id;
 
 	@Column(name = "Street")
@@ -23,17 +23,27 @@ public class Address
 	private String state;
 
 	@Column(name = "Zip")
-	private String zip;
+	private int zip;
 
-	public Address(String street, String city, String state, String zip)
+	public AddressPojo(int address_id,String street, String city, String state, int zip)
 	{
+		super();
+		this.address_id = address_id;
+		this.street = street;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+	}
+	public AddressPojo(String city, String state,String street,int zip)
+	{
+		super();
 		this.street = street;
 		this.city = city;
 		this.state = state;
 		this.zip = zip;
 	}
 
-	public Address()
+	public AddressPojo()
 	{
 
 	}
@@ -80,12 +90,12 @@ public class Address
 		this.state = state;
 	}
 
-	public String getZip()
+	public int getZip()
 	{
 		return zip;
 	}
 
-	public void setZip(String zip)
+	public void setZip(int zip)
 	{
 		this.zip = zip;
 	}
