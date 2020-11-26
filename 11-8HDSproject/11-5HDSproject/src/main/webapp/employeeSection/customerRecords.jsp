@@ -93,7 +93,7 @@
                 <%--Add new Customer--%>
                 <form action="../customerServlet" method="GET">
                     <td>
-<%--                        <label><input type="text" name="customerID" value=""/></label>--%>
+
                     </td>
                     <td><label><input type="text" name="cus_last_name" value=""/></label>
                     </td>
@@ -102,23 +102,24 @@
                     <td><label><input type="text" name="cus_mi" value=""/></label></td>
                     <td><label><input type="text" name="address_street" value=""/></label>
                     </td>
-                    <td><label><input type="text" name="address_city" value=""/></label></td>
+                    <td><label><input type="text" name="address_city" value=""/></label>
+                    </td>
                     <td>
                         <jsp:include page="../templates/selectState.html"></jsp:include>
                     </td>
-                    <td><label><input type="text" name="address_zip" value=""/></label></td>
+                    <td><label><input type="text" name="address_zip" value=""/></label>
+                    </td>
                     <td><label><input type="tel" name="cus_phone_num" value=""/></label>
                     </td>
                     <td><label><input type="email" name="cus_email" value=""/></label>
                     </td>
-                    <td>
-
-                        <input type="submit" name="Add New Customer"
-                               value="Add New Customer">
+                    <td><input type="submit" name="Add New Customer"
+                               value="Add New Customer"></td>
                 </form>
-                </td>
+
             </tr>
             <c:forEach var="customerList" items="${customerList}">
+
                 <tr>
                     <td>${customerList.customer_id}</td>
                     <td>${customerList.customer_last_name}</td>
@@ -136,6 +137,7 @@
                             <%--                        <a href="delete?id=<c:out value='${customerList.id}' />">Delete</a>--%>
                     </td>
                 </tr>
+
             </c:forEach>
             <%--Sample layout--%>
             <tr>

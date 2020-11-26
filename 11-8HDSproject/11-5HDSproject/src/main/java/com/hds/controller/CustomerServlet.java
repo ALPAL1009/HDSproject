@@ -30,6 +30,7 @@ public class CustomerServlet extends HttpServlet
 		{
 			System.out.println("Populate customer list ");
 
+			//Fetch
 			List<CustomerPojo> customerList;
 			customerList = configDatabase.customerViewDB();
 
@@ -70,7 +71,7 @@ public class CustomerServlet extends HttpServlet
 			System.out.println(city);
 			String state = request.getParameter("selState");
 			System.out.println(state);
-			String zip = request.getParameter("address_zip");
+			int zip = Integer.parseInt(request.getParameter("address_zip"));
 			System.out.println(zip);
 			int customer_id = configDatabase.getNextCustomerId();
 			System.out.println("Next Id is: " + customer_id);
@@ -88,11 +89,17 @@ public class CustomerServlet extends HttpServlet
 			configDatabase.addToDataBase(addressPojo);
 
 			//Create the Customer object and update customer database
-			CustomerPojo customerPojo = new CustomerPojo(customer_id, customer_address_id, customer_last_name, customer_first_name, customer_mi, customer_phone_num,
+			CustomerPojo customerPojo = new CustomerPojo(customer_id, customer_address_id, customer_last_name, customer_first_name, customer_mi,
+					customer_phone_num,
 					customer_email);
 			System.out.println("Got info");
 			configDatabase.addToDataBase(customerPojo);
 
+			//Fetch
+			List<CustomerPojo> customerList;
+			customerList = configDatabase.customerViewDB();
+
+			request.setAttribute("customerList", customerList);
 			RequestDispatcher rd = request.getRequestDispatcher("/employeeSection/customerRecords.jsp");
 			rd.forward(request, response);
 		}

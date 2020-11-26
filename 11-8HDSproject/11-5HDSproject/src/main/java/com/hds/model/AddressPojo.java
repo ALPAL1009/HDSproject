@@ -23,9 +23,9 @@ public class AddressPojo
 	private String state;
 
 	@Column(name = "Zip")
-	private String zip;
+	private int zip;
 
-	public AddressPojo(int address_id,String street, String city, String state, String zip)
+	public AddressPojo(int address_id,String street, String city, String state, int zip)
 	{
 		super();
 		this.address_id = address_id;
@@ -34,7 +34,7 @@ public class AddressPojo
 		this.state = state;
 		this.zip = zip;
 	}
-	public AddressPojo(String city, String state,String street,String zip)
+	public AddressPojo(String city, String state,String street,int zip)
 	{
 		super();
 		this.street = street;
@@ -90,12 +90,12 @@ public class AddressPojo
 		this.state = state;
 	}
 
-	public String getZip()
+	public int getZip()
 	{
 		return zip;
 	}
 
-	public void setZip(String zip)
+	public void setZip(int zip)
 	{
 		this.zip = zip;
 	}
