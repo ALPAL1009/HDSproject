@@ -9,8 +9,8 @@ public class AddressPojo
 {
 
 	@Id
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "AddressID")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int address_id;
 
 	@Column(name = "Street")
@@ -27,7 +27,16 @@ public class AddressPojo
 
 	public AddressPojo(int address_id,String street, String city, String state, String zip)
 	{
+		super();
 		this.address_id = address_id;
+		this.street = street;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+	}
+	public AddressPojo(String city, String state,String street,String zip)
+	{
+		super();
 		this.street = street;
 		this.city = city;
 		this.state = state;

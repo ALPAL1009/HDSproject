@@ -1,6 +1,8 @@
 package com.hds.util;
 
 import java.util.Properties;
+
+import com.hds.model.AddressPojo;
 import com.hds.model.CustomerPojo;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -45,6 +47,7 @@ public class HibernateUtil {
 
                 // CustomerPojo "test" change if necessary
                 config.addAnnotatedClass(CustomerPojo.class);
+                config.addAnnotatedClass(AddressPojo.class);
 
                 ServiceRegistry sr = new StandardServiceRegistryBuilder()
                         .applySettings(config.getProperties()).build();

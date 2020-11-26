@@ -62,14 +62,16 @@ public class CustomerServlet extends HttpServlet
 			System.out.println("Get ADD");
 
 			//Request Parameters from customerRecords.jsp
-			int customer_address_id = 1280;
-//					configDatabase.getNextAddressId();
+			int customer_address_id = configDatabase.getNextAddressId();
 			System.out.println("Next Id is: " + customer_address_id);
 			String street = request.getParameter("address_street");
+			System.out.println(street);
 			String city = request.getParameter("address_city");
+			System.out.println(city);
 			String state = request.getParameter("selState");
-			String zip= request.getParameter("address_zip");
-
+			System.out.println(state);
+			String zip = request.getParameter("address_zip");
+			System.out.println(zip);
 			int customer_id = configDatabase.getNextCustomerId();
 			System.out.println("Next Id is: " + customer_id);
 			String customer_last_name = request.getParameter("cus_last_name");
@@ -82,11 +84,12 @@ public class CustomerServlet extends HttpServlet
 			//Address object is created first because the AddressId is needed for
 			//Customer object
 			//update address database
-			AddressPojo addressPojo = new AddressPojo(customer_address_id,street,city,state,zip);
+			AddressPojo addressPojo = new AddressPojo(customer_address_id, street, city, state, zip);
 			configDatabase.addToDataBase(addressPojo);
 
 			//Create the Customer object and update customer database
-			CustomerPojo customerPojo = new CustomerPojo(customer_id,customer_last_name, customer_first_name, customer_mi, customer_phone_num, customer_email);
+			CustomerPojo customerPojo = new CustomerPojo(customer_id, customer_address_id, customer_last_name, customer_first_name, customer_mi, customer_phone_num,
+					customer_email);
 			System.out.println("Got info");
 			configDatabase.addToDataBase(customerPojo);
 

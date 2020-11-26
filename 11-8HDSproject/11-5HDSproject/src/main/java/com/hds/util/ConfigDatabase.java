@@ -19,7 +19,7 @@ public class ConfigDatabase
 		try (Session session = HibernateUtil.getSessionFactory().openSession())
 		{
 			session.beginTransaction();
-			String queryString = "select max(AddressID) from hds.address";
+			String queryString = "select max(address.AddressID) from hds.address";
 			List IDResult = session.createSQLQuery(queryString).list();
 			addressID = Integer.parseInt(IDResult.get(0).toString()) + 1;
 
